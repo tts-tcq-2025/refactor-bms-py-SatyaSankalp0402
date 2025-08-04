@@ -15,12 +15,12 @@ def show_warning_message(message):
   print(message)
   
 def vitals_ok(temperature, pulseRate, spo2):
-    values_vitals= {
-        'Temperature': (temperature, (95, 102), 'Temperature critical!'),
-        'Pulse Rate': (pulseRate, (60, 100), 'Pulse Rate is out of range!'),
-        'Oxygen Saturation': (spo2, (90, float('inf')), 'Oxygen Saturation out of range!')
-        }
-    for vital, (value, (low, high), message) in values_vitals.items():
+    value_vitals = [
+        (temperature, 95, 102, 'Temperature critical!'),
+        (pulseRate, 60, 100, 'Pulse Rate is out of range!'),
+        (spo2, 90, float('inf'), 'Oxygen Saturation out of range!')
+    ]
+    for value, low, high, message in value_vitals:
       if (value < low) or (value > high):
           show_warning_message(message)
           display_warning()
