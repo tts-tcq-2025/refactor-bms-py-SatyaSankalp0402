@@ -1,5 +1,5 @@
-from warning import display_warning
-from warning import show_warning_message
+from warning import blinking_alert
+from warning import print_warning_message
   
 def vitals_ok(temperature, pulseRate, spo2):
     value_vitals = [
@@ -9,7 +9,7 @@ def vitals_ok(temperature, pulseRate, spo2):
     ]
     for value, low, high, message in value_vitals:
       if (value < low) or (value > high):
-          show_warning_message(message)
-          display_warning()
+          print_warning_message(message)
+          blinking_alert()
           return False
     return True
