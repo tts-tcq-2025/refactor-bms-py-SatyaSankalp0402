@@ -1,7 +1,7 @@
 from time import sleep
 import sys
 
-def display_warning(cycles=6,sleep_time=1):
+def blinking_alert(cycles=6,sleep_time=1):
   for i in range(cycles):
       print('\r* ', end='')
       sys.stdout.flush()
@@ -10,5 +10,5 @@ def display_warning(cycles=6,sleep_time=1):
       sys.stdout.flush()
       sleep(sleep_time)
     
-def show_warning_message(message):
+def print_warning_message(message):
   print(message)
