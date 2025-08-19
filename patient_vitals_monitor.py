@@ -13,7 +13,7 @@ def check_vital_signs(temperature, pulseRate, spo2):
         "pulseRate": pulseRate,
         "spo2": spo2
     }
-    for vital_name, low, high, alert_message, warn_low_message, warn_high_message in value_thresholds:
+    for vital_name, low, high, alert_message, warn_low_message, warn_high_message in vital_thresholds:
       value = current_vitals[vital_name]
       if high== float("inf"):
           tolerance=0
