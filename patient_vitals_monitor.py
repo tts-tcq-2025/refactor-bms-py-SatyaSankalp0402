@@ -22,9 +22,9 @@ def vitals_ok(temperature, pulseRate, spo2):
 
       #Early Warnings Detection
       if warn_low_message and (low<= value < low+tolerance):
-          print_warning_message(f"Warning: {warn_low_message})
+          print_warning_message(f"Warning: {warn_low_message}")
       if warn_high_message and (high-tolerance < value <=high):
-          print_warning_message(f"Warning: {warn_high_message})
+          print_warning_message(f"Warning: {warn_high_message}")
 
       # Critical Alerts    
       if (value < low) or (value > high):
