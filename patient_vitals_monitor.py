@@ -1,5 +1,5 @@
-from warning import blinking_alert
-from warning import print_warning_message
+from vitals_warning_system import blinking_alert
+from vitals_warning_system import print_warning_message
 
 vital_thresholds = [
     ("temperature", 95, 102, "Temperature critical!", "Approaching Hypothermia", "Approaching Hyperthermia"),
