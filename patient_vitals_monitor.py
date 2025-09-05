@@ -14,7 +14,7 @@ def check_vital_signs(temperature, pulseRate, spo2):
         "spo2": spo2
     }
     for vital_name,value in current_vitals.items():
-      low,high,alert,warn_low_message,warn_high_message = vital_thersholds[vital]
+      low,high,alert,warn_low_message,warn_high_message = vital_thresholds[vital]
       if high== float("inf"):
           tolerance=0
       else:
