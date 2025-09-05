@@ -1,11 +1,11 @@
 from vitals_warning_system import blinking_alert
 from vitals_warning_system import print_warning_message
 
-vital_thresholds = [
-    ("temperature", 95, 102, "Temperature critical!", "Approaching Hypothermia", "Approaching Hyperthermia"),
-    ("pulseRate", 60, 100, "Pulse Rate is out of range!", "Pulse dropping low", "Pulse Rising High"),
-    ("spo2", 90, float("inf"), "Oxygen Saturation out of range!","Oxygen level dropping", None)
-]
+vital_thresholds = {
+    "temperature": (95, 102, "Temperature critical!", "Approaching Hypothermia", "Approaching Hyperthermia"),
+    "pulseRate": (60, 100, "Pulse Rate is out of range!", "Pulse dropping low", "Pulse Rising High"),
+    "spo2": (90, float("inf"), "Oxygen Saturation out of range!","Oxygen level dropping", None)
+}
 
 def check_vital_signs(temperature, pulseRate, spo2):
     current_vitals = {
