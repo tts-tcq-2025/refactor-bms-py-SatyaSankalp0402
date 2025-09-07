@@ -35,7 +35,7 @@ def check_vital_signs(temperature, pulseRate, spo2):
     for vital_name,value in current_vitals.items():
       low,high,alert_message,warn_low_message,warn_high_message = vital_thresholds[vital_name]
       tolerance=calculate_tolerance(high)
-      check_warnings(value, low, high, tolerance, warn_low, warn_high)
+      check_warnings(value, low, high, tolerance, warn_low_message, warn_high_message)
       if not check_critical(value, low, high, alert_message):
             return False
     return True
