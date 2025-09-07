@@ -13,6 +13,7 @@ def calculate_tolerance(high):
         return high*0.015
 
 def check_warnings(value, low, high, tolerance, warn_low_message, warn_high_message):
+    warnings=[]
     if warn_low_message and low <= value < low + tolerance:
         warnings.append(warn_low_message)
     if warn_high_message and high - tolerance < value <= high:
