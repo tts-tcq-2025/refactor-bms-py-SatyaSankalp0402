@@ -12,12 +12,19 @@ def calculate_tolerance(high):
     else:
         return high*0.015
 
+def is_low_warning(value, low, tolerance):
+    return low <= value < low + tolerance
+
+def is_high_warning(value, high, tolerance):
+    return high - tolerance < value <= high
+
 def check_warnings(value, low, high, tolerance, warn_low_message, warn_high_message):
-    if warn_low_message and low <= value < low + tolerance:
-        print_warning_message(f"Warning: {warn_low_message}") 
-    if warn_high_message and high - tolerance < value <= high: 
+    if warn_low_message and is_low_warning(value, low, tolerance):
+        print_warning_message(f"Warning: {warn_low_message}")
+
+    if warn_high_message and is_high_warning(value, high, tolerance):
         print_warning_message(f"Warning: {warn_high_message}")
-        
+
 def check_critical(value, low, high, alert_message):
     if value < low or value > high:
         print_warning_message(alert_message)
