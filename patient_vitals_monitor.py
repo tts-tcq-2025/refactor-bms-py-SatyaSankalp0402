@@ -19,20 +19,17 @@ def is_high_warning(value, high, tolerance):
     return high - tolerance < value <= high
 
 def check_warnings(value, low, high, tolerance, warn_low_message, warn_high_message):
-   checks = [
-        (warn_low_message, is_low_warning, low),
-        (warn_high_message, is_high_warning, high)
-    ]
+  def check_warnings(value, low, high, tolerance, warn_low_message, warn_high_message):
+    def warn_message(msg, func, limit):
+        # Returns the warning string or None without any if
+        return msg and func(value, limit, tolerance) and f"Warning: {msg}"
 
-    messages = [
-        f"Warning: {message}"
-        for message, function, limit in checks
-        if message and function(value, limit, tolerance)
-    ]
+    messages = filter(None, [
+        warn_message(warn_low_message, is_low_warning, low),
+        warn_message(warn_high_message, is_high_warning, high)
+    ])
 
-    # Print all at once
     list(map(print_warning_message, messages))
-        
 def check_critical(value, low, high, alert_message):
     if value < low or value > high:
         print_warning_message(alert_message)
